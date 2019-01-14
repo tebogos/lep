@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+{{ form.media.css }}
+<form action='.' method='POST' >{% csrf_token %}
+
+    
+{% comment %} <input type=”text” class=”firm-select” id=”txtSearch” name=”txtSearch”> {% endcomment %}
+  {{ form.as_p }}
+
+    <input type='submit' value='Save' />
+</form>
+{{ form.media.js }}
+{% endblock content %}
+
+{% block javascript %}
+ 
+
+    
+
+{% endblock javascript %}

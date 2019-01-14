@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% comment %} {{ form.media.css }} {% endcomment %}
+<script>
+            $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+
+<form action='.' method='POST'>{% csrf_token %}
+    <select class="js-example-basic-single" name="state">
+        <option value="AL">Alabama</option>
+        <option value="EL">Elenore</option>
+        <option value="WY">Wyoming</option>
+    </select>
+    {% comment %} {% for f in form.results %}
+    <ul>{{f}}</ul>
+   {% endfor %}  {% endcomment %}
+    {% comment %} {{ form.as_p }} {% endcomment %}
+    
+    <input type='submit' value='Save' />
+</form>
+
+{% comment %} {{ form.media.js }} {% endcomment %}
+{% endblock content %}
+
+{% block javascript %}
+
+
+{% endblock javascript %}

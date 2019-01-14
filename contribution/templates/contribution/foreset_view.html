@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+<form action='.' method='POST' >{% csrf_token %}
+
+    
+{% comment %} <input type=”text” class=”firm-select” id=”txtSearch” name=”txtSearch”> {% endcomment %}
+{% comment %} <input type="text" name="firm_select2" id="firm_select2" class="js-validate-username">
+<select id="firm_select" class="firm_select" name="firm">
+    <option value="a12345">ABC</option>
+    <option value="p18281">Paso</option>
+    <option value="c12345">CDF</option>
+</select> {% endcomment %}
+{{formset.management_form}}
+{% for form in formset %}
+   <p> {{ form }} </p>
+{% endfor%}
+    <input type='submit' value='Save' />
+</form>
+
+{% endblock content %}
+
+{% block javascript %}
+ 
+
+    <script>
+     $(document).ready(function(){
+        $('#firm_select').select2();    
+  });
+</script>
+  
+  <script>
+  $(document).ready(function(){
+
+ 
+    $("#firm_select").on("change",function () {
+    
+      console.log("I am in the jquery call")
+      var firm_name = $(this).val();
+      
+      $.ajax({
+        url: '/contribution/validate_firm' , //   form.attr("data-validate-firm-url"),
+        data: {'firm_name':firm_name}  ,     //form.serialize(),
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            alert(data.error_message);
+          }
+        }
+      });
+
+    });
+     });
+  </script> 
+
+{% endblock javascript %}
