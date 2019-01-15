@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r4k54dr5r9-4_^+$5@nk*2q$5z1u0x&cntcuh&8*yo0j7rseyr'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['siyandizapro.appspot.com']
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -103,9 +103,9 @@ if os.getenv('GAE_APPLICATION', None):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/siyandizapro:europe-west1:sqlinstance',
-            'USER': 'tebogo',
-            'PASSWORD': 'tebza25@sql',
+            'HOST': '',
+            'USER': '',
+            'PASSWORD': '',
             'NAME': 'lep',
         }
     }
@@ -122,8 +122,8 @@ else:
             'HOST': '127.0.0.1',
             'PORT': '3306',
             'NAME': 'lep',
-            'USER': 'tebogo',
-            'PASSWORD': 'tebza25@sql',
+            'USER': '',
+            'PASSWORD': '',
         }
     }
 # [END db_setup]
