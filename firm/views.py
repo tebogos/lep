@@ -7,6 +7,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from  firm.serializers import UserSerializer, GroupSerializer, FirmSerializer
 
+# This is the firm view class
 
 class UserViewSet(viewsets.ModelViewSet):
     """
